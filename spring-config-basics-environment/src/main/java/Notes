@@ -1,0 +1,4 @@
+Notes:
+
+1. Environment variables should be avoided unless needed
+Alternate to above @Value("") or ${""}

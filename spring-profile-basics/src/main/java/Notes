@@ -1,0 +1,23 @@
+Notes:
+
+1. 'spring.profiles.active' must be defined in main properties file.
+If same property is defined in dev / test profile. application wont run
+
+2. If 'spring.profiles.active' is not mentioned, it will is set to default [Current]. 
+It means it will load from the current property file
+
+3. Reusing the property can be done using ${property key}
+Ex : ${app.name}
+
+4. If property is missing in dev / test. first it falls back to default profile
+If default profile also doesnt contain that property 
+then default value will be picked from property file
+
+Ex - Profile - TEST 
+- [app.name is not present] 
+app.description= Test Application - ${app.name:Name is absent}
+- If app.name is present in default profile, it will pick from there
+- If not, then only it will pick default value 'Name is absent' 
+
+5. @Value("${property key : default value}") 
+- If property key is present, property value will be displayed else default value

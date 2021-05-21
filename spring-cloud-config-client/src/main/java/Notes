@@ -1,0 +1,31 @@
+Notes:
+
+1. For making any application as client config 
+# build.gradle
+- implementation 'org.springframework.boot:spring-boot-starter-actuator'
+-- To refresh the configuration
+
+- implementation 'org.springframework.cloud:spring-cloud-starter-config'
+-- To mark the application as config client
+
+# Properties
+- spring.config.import=optional:configserver:
+-- It justs import the config server if present else skip
+
+- spring.cloud.config.uri=http://localhost:8888
+-- place the config server url 
+
+- spring.application.name=spring-boot-config-dev
+-- application name must be used for properties file creation in GIT folder
+
+- management.endpoints.web.exposure.include=refresh
+-- ensure actuator endpoints are exposed for refreshing the configuration
+
+# Steps
+- add config client & actuator plugins
+- @RefreshScope - for refreshing bean dynamically when actuator is hit with '/refresh' url
+
+# Required URL
+Actuator - http://localhost:3006/actuator/refresh
+Config Client - http://localhost:3006/config/client
+Config Server - http://localhost:8888/spring-boot-config/dev

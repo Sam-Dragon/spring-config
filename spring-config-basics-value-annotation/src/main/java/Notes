@@ -1,0 +1,18 @@
+Notes:
+
+1. @Value("${Property Key}")
+- If key is not present, application run fails
+
+2. 1. @Value("${Property Key: Default value}")
+- If key is not present, application run but with default value
+- If key is present, application run but with provided value
+
+3. ${blacklist.mobile.number} - blacklist.mobile.number=9663374604, 9663374603, 9663374602, 9663374604
+   private Set<String> blackListedNumbers OR private List<String> blackListedNumbers; 
+- Direct collections can be used
+
+4. #{${connection.detail}} - connection.detail = {name: 'postgres', password: 'postgres'}
+- Evaluate as expression [SPEL] and provide data in form of key/value pair
+- values must be provided quotes in properties file
+
+5. 
