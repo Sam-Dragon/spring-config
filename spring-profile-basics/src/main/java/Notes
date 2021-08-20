@@ -1,10 +1,17 @@
 Notes:
 
-1. 'spring.profiles.active' must be defined in main properties file.
-If same property is defined in dev / test profile. application wont run
+# Profile Configuration
+- Context parameter in web.xml
+- WebApplicationInitializer
+- JVM System parameter
+- Environment variable
+- Maven profile
+
+1. 'spring.profiles.active' must be defined in main application.properties file.
+- If same property is defined in dev / test profile. application wont run
 
 2. If 'spring.profiles.active' is not mentioned, it will is set to default [Current]. 
-It means it will load from the current property file
+- It means it will load from the current property file
 
 3. Reusing the property can be done using ${property key}
 Ex : ${app.name}
@@ -21,3 +28,16 @@ app.description= Test Application - ${app.name:Name is absent}
 
 5. @Value("${property key : default value}") 
 - If property key is present, property value will be displayed else default value
+
+
+## @Profile
+1. Profile
+- If we want Spring to use a @Component class or a @Bean method only when a specific profile is 
+  active, we can mark it with @Profile. We can configure the name of the profile with the 
+  value argument of the annotation
+	@Component
+	@Profile("sportDay")
+	class Bike implements Vehicle {}
+	
+2. Profile Groups
+-  spring.profiles.group.production=dev,dev2
