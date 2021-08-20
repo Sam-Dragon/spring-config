@@ -15,6 +15,9 @@ public class ValueAnnotationController {
 	@Value("${app.name:Default Application Name Not Read from Property file If 'Profile' is missed in config }")
 	private String application;
 
+	@Value("${app.description}")
+	private String description;
+
 	@Value("Some static message")
 	private String staticMessage;
 
@@ -27,6 +30,7 @@ public class ValueAnnotationController {
 
 	@GetMapping
 	public String externalMethod() {
-		return application + " >> " + staticMessage + " << " + blackListedNumbers + " || " + connectionMap;
+		return application + " : " + description + " >> " + staticMessage + " << " + blackListedNumbers + " || "
+				+ connectionMap;
 	}
 }
