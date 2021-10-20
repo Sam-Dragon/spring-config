@@ -3,7 +3,7 @@ Notes:
 1. @Value("${Property Key}")
 - If key is not present, application run fails
 
-2. 1. @Value("${Property Key: Default value}")
+2. @Value("${Property Key: Default value}")
 - If key is not present, application run but with default value
 - If key is present, application run but with provided value
 
@@ -15,4 +15,11 @@ Notes:
 - Evaluate as expression [SPEL] and provide data in form of key/value pair
 - values must be provided quotes in properties file
 
-5. 
+# Property via Command Line Arguments
+> java -jar C:\Users\Admin\git\spring-config\spring-config-basics-value-annotation\build\libs\spring-config-basics-value-annotatio
+n-0.0.1-SNAPSHOT.jar --app.name=Rahul Application --server.port=2000
+
+# Generating Jar
+- Go to Gradle Tasks Tab
+- Click on bootJar
+- Go to Navigator, check in 'build' > 'libs' > jar must be present here
