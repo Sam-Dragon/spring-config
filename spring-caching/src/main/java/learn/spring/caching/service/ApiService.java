@@ -6,5 +6,11 @@ import learn.spring.caching.model.Student;
 
 public interface ApiService {
 
-	Optional<Student> getStudent(String id, Boolean cacheble);
+	Optional<Student> getStudent(Long id);
+
+	Student updateStudent(Student student);
+
+	void deleteStudent(Long id);
+
+	void addStudent(Student student);
 }
